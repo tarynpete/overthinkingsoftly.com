@@ -5,6 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Overthinking Softly</title>
+<link rel="icon" type="image/png" href="assets/overthinkingsoftly-logo-sq.png">
+<link rel="apple-touch-icon" href="assets/overthinkingsoftly-logo-sq.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -67,18 +69,15 @@
   }
 
   .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    font-weight: 400;
-    color: var(--espresso);
-    letter-spacing: 0.02em;
     cursor: pointer;
     text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 
-  .nav-logo span {
-    font-style: italic;
-    color: var(--terracotta);
+  .nav-logo img {
+    height: 36px;
+    width: auto;
   }
 
   .nav-links {
@@ -1149,14 +1148,15 @@
   }
 
   .footer-brand .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
-  .footer-brand .logo em { font-style: italic; color: var(--terracotta-light); }
+  .footer-brand .logo img {
+    height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
 
   .footer-brand p { font-size: 0.82rem; line-height: 1.7; max-width: 240px; }
 
@@ -1323,7 +1323,7 @@
 <!-- NAV -->
 
 <nav>
-  <a class="nav-logo" onclick="showPage('home')">Overthinking <span>Softly</span></a>
+  <a class="nav-logo" onclick="showPage('home')"><img src="assets/overthinkingsoftly-logo.png" alt="Overthinking Softly"></a>
   <ul class="nav-links">
     <li><a onclick="showPage('home')">Home</a></li>
     <li><a onclick="showPage('blog')">Blog</a></li>
@@ -1812,7 +1812,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="logo">Overthinking <em>Softly</em></div>
+      <div class="logo"><img src="assets/overthinkingsoftly-logo.png" alt="Overthinking Softly"></div>
       <p>A gentle space for deep feelers, quiet overthinkers, and anyone learning to be a little kinder to themselves.</p>
     </div>
     <div class="footer-links">
