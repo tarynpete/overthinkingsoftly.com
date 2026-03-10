@@ -889,6 +889,117 @@
     color: var(--text-muted);
   }
 
+  /* ── BLOG POST DETAIL ── */
+  .post-detail { display: none; }
+
+  .article-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0;
+    margin-bottom: 2.5rem;
+    transition: color 0.2s;
+  }
+  .article-back-btn:hover { color: var(--terracotta); }
+
+  .article-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  .article-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 1.25rem;
+  }
+
+  .article-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    font-weight: 400;
+    color: var(--espresso);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .article-meta {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .article-body p {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-body em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05em;
+    color: var(--mocha);
+  }
+
+  .article-body .italics-block {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--mocha);
+    line-height: 1.75;
+    padding: 0.25rem 0 0.25rem 1.5rem;
+    border-left: 2px solid var(--terracotta-light);
+    margin: 2rem 0;
+  }
+
+  .article-body .italics-block p {
+    margin-bottom: 0.35rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--mocha);
+    line-height: 1.75;
+  }
+
+  .article-reminder-callout {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem 2.25rem;
+    margin-top: 3rem;
+    text-align: center;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .article-reminder-callout p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--espresso);
+    line-height: 1.65;
+    margin: 0;
+  }
+
   /* ── LIGHTBOX ── */
   .lightbox {
     display: none;
@@ -1261,20 +1372,118 @@
 <!-- ══════════════════════════════════════════ -->
 
 <div id="page-blog" class="page">
-  <div class="section-wide">
+
+  <!-- Blog listing -->
+  <div id="blog-list" class="section-wide">
     <div class="section-header">
       <div>
         <h1>Blog & <em>Responses</em></h1>
         <p>Honest reflections, reader questions answered, and thoughts on learning to live gently with your mind.</p>
       </div>
     </div>
-    <div class="coming-soon-block">
-      <div class="coming-soon-icon">✍️</div>
-      <h2>Coming Soon</h2>
-      <p>Posts are on their way. Check back soon.</p>
-    </div>
+    <div class="posts-grid">
 
+      <div class="post-card" onclick="showPost('nervous-system')">
+        <div class="post-thumb sage-bg"><span style="font-size:2rem;">🌿</span></div>
+        <div class="post-body">
+          <div class="post-tag">Anxiety &amp; Overthinking</div>
+          <h3 class="post-title">When Your Nervous System Doesn't Believe the Truth</h3>
+          <p class="post-excerpt">Sometimes the truth and what your nervous system believes are two completely different things — and that disconnect can feel exhausting.</p>
+          <div class="post-meta">March 10, 2026 &nbsp;·&nbsp; Hazel</div>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+  <!-- Post detail: nervous-system -->
+  <div id="blog-post-nervous-system" class="post-detail">
+    <div class="article-wrap">
+      <button class="article-back-btn" onclick="showBlogList()">← Back to Blog</button>
+      <div class="article-tag">Anxiety &amp; Overthinking</div>
+      <h1 class="article-title">When Your Nervous System Doesn't Believe the Truth</h1>
+      <div class="article-meta">March 10, 2026 &nbsp;·&nbsp; Hazel</div>
+
+      <div class="article-body">
+        <p>There's something that doesn't get talked about enough when it comes to overthinking.</p>
+        <p>Sometimes the truth and what your nervous system believes are two completely different things.</p>
+        <p>Logically, you can know something is okay. You can know someone loves you. You can know nothing bad is happening. And yet your brain still whispers, <em>but what if…</em></p>
+        <div class="italics-block">
+          <p>What if something changed?</p>
+          <p>What if I missed a sign?</p>
+          <p>What if I'm about to get hurt?</p>
+          <p>What if I care more than they do?</p>
+        </div>
+        <p>Suddenly your mind is racing. Your stomach feels tight. You start replaying conversations, checking your phone, looking for clues that something is wrong — even though nothing actually is.</p>
+        <p>And that disconnect can be incredibly frustrating. Because you're not confused about the facts. You understand the reality of the situation.</p>
+        <p>But your nervous system hasn't caught up with that reality yet.</p>
+        <p>One of the strangest parts about being someone who overthinks is that you can be very emotionally aware. Sometimes you know exactly what's happening while it's happening. You might even be able to say to yourself, <em>I know this thought probably isn't true.</em></p>
+        <p>But knowing that doesn't automatically calm the feeling.</p>
+        <p>You can know someone is busy.<br>
+        You can know they care about you.<br>
+        You can know you're probably just tired or stressed.</p>
+        <p>And yet the tight feeling in your chest is still there. The restless urge to check something again is still there. It's like your brain and your body are telling two different stories.</p>
+        <p>Your brain understands the facts.<br>
+        Your nervous system is still sounding the alarm.</p>
+        <p>And the thing about our nervous systems is that they're not trying to be dramatic. They're trying to protect us. They are constantly scanning the world for signs of danger so we can react quickly if we need to.</p>
+        <p>Thousands of years ago that system was designed to help humans survive. But our brains haven't quite caught up with modern life.</p>
+        <p>Now the "danger" isn't usually something physical. Sometimes it's uncertainty. Sometimes it's silence. Sometimes it's not knowing what someone else is thinking.</p>
+        <p>And if you're someone who cares deeply about people and relationships, your nervous system can interpret that uncertainty as a threat.</p>
+        <p>So it does what it thinks will help.</p>
+        <p>It sounds the alarm.</p>
+        <p>Once that alarm goes off, your brain tries to solve it the only way it knows how — by thinking harder. You start analyzing things, replaying conversations, trying to find answers that will make the feeling go away.</p>
+        <p>But overthinking rarely gives us the certainty we're searching for. Usually it just keeps the alarm going.</p>
+        <p>If you're someone who overthinks, you probably know the spiral. It often starts with something small. Maybe a message that felt a little shorter than usual. Maybe someone seemed distracted. Maybe plans changed unexpectedly.</p>
+        <p>Your brain notices the shift, and suddenly the questions start forming.</p>
+        <div class="italics-block">
+          <p>Did I do something wrong?</p>
+          <p>Did I say too much?</p>
+          <p>Are they pulling away?</p>
+        </div>
+        <p>You might even try to reason with yourself. You remind yourself that everything is probably fine. You try to think logically.</p>
+        <p>But once your nervous system is activated, logic alone doesn't always calm it down.</p>
+        <p>And realizing that was actually really helpful for me.</p>
+        <p>Because it made me understand something important: spiraling isn't a character flaw.</p>
+        <p>It's usually just a nervous system that hasn't learned how to calm itself yet.</p>
+        <p>When your body feels unsafe, your brain goes into problem-solving mode. It wants certainty. It wants reassurance. It wants the feeling to stop.</p>
+        <p>So if you've ever felt embarrassed about spiraling or worried that you're "too much," you're definitely not alone. A lot of thoughtful, self-aware people deal with this.</p>
+        <p>In fact, many people who overthink are the same people who care deeply about others and about doing the right thing. Your brain is trying to protect something important to you. It's just doing it in a way that can feel exhausting sometimes.</p>
+        <p>One of the biggest things I've been learning is that when you're spiraling, the solution usually isn't more thinking.</p>
+        <p>Because the alarm isn't coming from logic.</p>
+        <p>It's coming from your nervous system.</p>
+        <p>Which means sometimes the most helpful thing you can do isn't trying to win an argument with your thoughts. It's helping your body calm down.</p>
+        <p>Something as simple as slowing your breathing can actually make a difference. Taking a slow breath in, holding it for a moment, and then letting the exhale last a little longer than the inhale can send a signal to your nervous system that you're safe.</p>
+        <p>Even a short walk can help. Anxiety creates energy in the body, and sometimes moving that energy helps release some of the tension your mind is holding onto.</p>
+        <p>Grounding yourself in the present moment can help too. Overthinking tends to pull us into imagined futures — all the things that <em>might</em> happen or <em>could</em> mean something.</p>
+        <p>But when you gently bring your attention back to what's actually happening around you — the room you're sitting in, the sounds you can hear, the things you can touch — it helps remind your nervous system that nothing dangerous is happening right now.</p>
+        <p>None of these things fix everything instantly. But they can take the edge off the spiral enough for your thoughts to soften.</p>
+        <p>Sometimes the hardest part about overthinking isn't the thoughts themselves.</p>
+        <p>It's the feeling that comes with them.</p>
+        <p>That tight feeling in your chest.<br>
+        The restless energy.<br>
+        The urge to fix something that might not even be broken.</p>
+        <p>And while there's no single trick that makes those moments disappear instantly, there are small things that can help your nervous system settle when it starts sounding the alarm.</p>
+        <p>Sometimes the most helpful place to start is simply slowing down your breathing. Taking a slow breath in through your nose, holding it for a moment, and then letting the exhale last a little longer than the inhale can signal to your body that it's safe to relax. Even doing this for a minute or two can help take the edge off the spiral.</p>
+        <p>Moving your body can help too. A short walk, stretching your arms, or even standing up and shaking out some of that anxious energy can release tension your mind is holding onto.</p>
+        <p>Another gentle trick is grounding yourself in what's actually happening right now. Overthinking tends to pull us into imagined futures, all the things that <em>might</em> happen or <em>could</em> mean something. But looking around and noticing what you can see, hear, or touch can remind your nervous system that in this moment, you're okay.</p>
+        <p>And sometimes the most powerful thing you can do is give the feeling a little time instead of trying to solve it immediately. Not every anxious thought needs an answer right away. Sometimes your nervous system just needs a few minutes to catch up with reality.</p>
+        <p>None of these things are about fixing yourself.</p>
+        <p>They're just small ways to support your nervous system while it learns that not every uncertainty is danger.</p>
+        <p>And if you're someone whose mind spirals sometimes, I hope you know this:</p>
+        <p>You're not broken.<br>
+        You're not "too much."<br>
+        Your nervous system is just trying a little too hard to protect you.</p>
+        <p>With patience, kindness toward yourself, and a little practice, it can learn to soften.</p>
+        <p>And until then, you're not alone in the experience.</p>
+        <p>Not even a little.</p>
+
+        <div class="article-reminder-callout">
+          <p>Just because your nervous system is panicking doesn't mean something is actually wrong. Sometimes your body just needs a little time to catch up with reality.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ══════════════════════════════════════════ -->
@@ -1486,9 +1695,23 @@
     if (el) el.textContent = reminders[dayIndex];
   })();
 
+  // ── BLOG POST NAV ──
+  function showPost(id) {
+    document.getElementById('blog-list').style.display = 'none';
+    document.querySelectorAll('.post-detail').forEach(p => p.style.display = 'none');
+    var post = document.getElementById('blog-post-' + id);
+    if (post) { post.style.display = 'block'; window.scrollTo(0, 0); }
+  }
+  function showBlogList() {
+    document.querySelectorAll('.post-detail').forEach(p => p.style.display = 'none');
+    document.getElementById('blog-list').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
   // ── PAGE NAV ──
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    showBlogList(); // reset blog to listing view whenever navigating away/back
     const el = document.getElementById('page-' + id);
     if (el) { el.classList.add('active'); window.scrollTo(0,0); }
   }
