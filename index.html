@@ -680,67 +680,119 @@
     color: var(--text-muted);
   }
 
-  /* ── RESOURCES PAGE ── */
-  .resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .resource-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.75rem;
-    transition: all 0.3s ease;
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
-
-  .resource-card:hover {
-    border-color: var(--tan);
-    box-shadow: 0 8px 30px var(--shadow);
-    transform: translateY(-2px);
-  }
-
-  .resource-icon-box {
-    width: 52px;
-    height: 52px;
+  /* ── FAVORITE FINDS PAGE ── */
+  .affiliate-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    padding: 0.85rem 1.25rem;
     background: var(--warm-white);
     border-radius: 4px;
+    border-left: 3px solid var(--border);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .product-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 44px var(--shadow);
+    border-color: var(--tan);
+  }
+
+  .product-img-wrap {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--warm-white);
+  }
+
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover .product-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .product-img-placeholder {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    flex-shrink: 0;
-    border: 1px solid var(--border);
+    font-size: 2.8rem;
+    transition: transform 0.4s ease;
   }
 
-  .resource-info { flex: 1; }
-
-  .resource-type {
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 0.3rem;
-    display: block;
-    font-weight: 400;
+  .product-card:hover .product-img-placeholder {
+    transform: scale(1.05);
   }
 
-  .resource-title {
+  .product-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .product-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 400;
     color: var(--espresso);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
   }
 
-  .resource-desc {
-    font-size: 0.82rem;
+  .product-note {
+    font-size: 0.83rem;
     color: var(--text-soft);
     line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .product-btn {
+    display: inline-block;
+    background: var(--espresso);
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.55rem 1.25rem;
+    border-radius: 20px;
+    transition: all 0.2s;
+    font-weight: 400;
+  }
+
+  .product-btn:hover {
+    background: var(--mocha);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(61,47,39,0.2);
+  }
+
+  @media (max-width: 768px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  }
+
+  @media (max-width: 480px) {
+    .product-grid { grid-template-columns: repeat(1, 1fr); }
   }
 
   /* ── THROUGH MY LENS PAGE ── */
@@ -1028,7 +1080,7 @@
     <li><a onclick="showPage('home')">Home</a></li>
     <li><a onclick="showPage('blog')">Blog</a></li>
     <li><a onclick="showPage('meals')">Meal Prep</a></li>
-    <li><a onclick="showPage('resources')">My Picks 💛</a></li>
+    <li><a onclick="showPage('resources')">Favorite Finds</a></li>
     <li><a onclick="showPage('lens')">Through My Lens</a></li>
   </ul>
   <div class="nav-right">
@@ -1048,7 +1100,7 @@
   <a onclick="showPage('home');closeMobile()">Home</a>
   <a onclick="showPage('blog');closeMobile()">Blog</a>
   <a onclick="showPage('meals');closeMobile()">Meal Prep</a>
-  <a onclick="showPage('resources');closeMobile()">My Picks 💛</a>
+  <a onclick="showPage('resources');closeMobile()">Favorite Finds</a>
   <a onclick="showPage('lens');closeMobile()">Through My Lens</a>
 </div>
 
@@ -1117,8 +1169,8 @@
         </div>
         <div class="card" onclick="showPage('resources')">
           <span class="card-icon">💛</span>
-          <h3>My Picks</h3>
-          <p>Everything I genuinely love — books, products, tools, and finds that have made my life a little softer and sweeter.</p>
+          <h3>Favorite Finds</h3>
+          <p>A curated collection of products, books, and tools I genuinely love and recommend.</p>
         </div>
       </div>
     </div>
@@ -1313,108 +1365,111 @@
   <div class="section-wide">
     <div class="section-header">
       <div>
-        <h1>My Picks 💛</h1>
-        <p>Everything I genuinely love — books, products, tools, and everyday finds that have made my life a little softer and sweeter.</p>
+        <h1>Favorite <em>Finds</em></h1>
+        <p>A few things I enjoy that make life a little easier, cozier, or more fun.</p>
       </div>
     </div>
 
-```
-<div class="section-label" style="margin-bottom:2rem">Books</div>
-<div class="resources-grid" style="margin-bottom:3rem">
+    <p class="affiliate-note">Some links on this page may be affiliate links. This means I may earn a small commission if you purchase through them, at no extra cost to you.</p>
 
-  <div class="resource-card">
-    <div class="resource-icon-box">📖</div>
-    <div class="resource-info">
-      <span class="resource-type">Book</span>
-      <div class="resource-title">The Gifts of Imperfection</div>
-      <div class="resource-desc">Brené Brown's gentle guide to letting go of who you think you should be and embracing who you are.</div>
+    <!--
+    ════════════════════════════════════════════════════
+    HOW TO ADD A PRODUCT CARD
+    ════════════════════════════════════════════════════
+    Copy this block and paste it inside any .product-grid below:
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <!-- Option A: real photo -->
+          <img src="assets/products/your-image.jpg" alt="Product Name">
+          <!-- Option B: emoji placeholder (delete when you have a photo) -->
+          <div class="product-img-placeholder" style="background: linear-gradient(135deg, #e8f0e0, #d4e8c8);">📖</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Product Name</div>
+          <p class="product-note">One sentence about why you love it.</p>
+          <a href="YOUR_AMAZON_LINK" class="product-btn" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </div>
+
+    ════════════════════════════════════════════════════
+    -->
+
+    <div class="section-label" style="margin-bottom:2rem">Books</div>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background: linear-gradient(135deg, #e8f0e0, #d4e8c8);">📖</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">The Gifts of Imperfection</div>
+          <p class="product-note">Brené Brown's gentle guide to letting go of who you think you should be and embracing who you are.</p>
+          <a href="#" class="product-btn" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background: linear-gradient(135deg, #f5ede0, #edd8c0);">📖</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Maybe You Should Talk to Someone</div>
+          <p class="product-note">A therapist pulls back the curtain on what it really means to seek help — warm, honest, and deeply human.</p>
+          <a href="#" class="product-btn" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background: linear-gradient(135deg, #e0eaf5, #c8d8ed);">📖</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Untamed</div>
+          <p class="product-note">Glennon Doyle on choosing yourself, feeling everything, and building the life you were meant for.</p>
+          <a href="#" class="product-btn" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </div>
+
     </div>
-  </div>
 
-  <div class="resource-card">
-    <div class="resource-icon-box">📖</div>
-    <div class="resource-info">
-      <span class="resource-type">Book</span>
-      <div class="resource-title">Maybe You Should Talk to Someone</div>
-      <div class="resource-desc">A therapist pulls back the curtain on what it really means to seek help — warm, honest, and deeply human.</div>
+    <div class="section-label" style="margin-bottom:2rem">Self-Care</div>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background: linear-gradient(135deg, #f5e8e0, #edcfb8);">🕯️</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Lavender Aromatherapy Candle</div>
+          <p class="product-note">Light one when you need to create a sense of calm at home — scent is the fastest path to the nervous system.</p>
+          <a href="#" class="product-btn" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background: linear-gradient(135deg, #d8e4d6, #c4d4c0);">🛁</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Epsom Salt Bath Soak</div>
+          <p class="product-note">A magnesium-rich soak that genuinely helps with tension and anxious energy — cheap, simple, and effective.</p>
+          <a href="#" class="product-btn" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background: linear-gradient(135deg, #e8dfd4, #d4c9b8);">☕</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Pukka Calm Tea Blend</div>
+          <p class="product-note">Chamomile, lavender, and oat flower — a cup of this before bed is a small, gentle act of self-love.</p>
+          <a href="#" class="product-btn" target="_blank" rel="noopener">View on Amazon →</a>
+        </div>
+      </div>
+
     </div>
-  </div>
-
-  <div class="resource-card">
-    <div class="resource-icon-box">📖</div>
-    <div class="resource-info">
-      <span class="resource-type">Book</span>
-      <div class="resource-title">Untamed</div>
-      <div class="resource-desc">Glennon Doyle on choosing yourself, feeling everything, and building the life you were meant for.</div>
-    </div>
-  </div>
-
-</div>
-
-<div class="section-label" style="margin-bottom:2rem">Tools & Apps</div>
-<div class="resources-grid" style="margin-bottom:3rem">
-
-  <div class="resource-card">
-    <div class="resource-icon-box">🧘</div>
-    <div class="resource-info">
-      <span class="resource-type">App</span>
-      <div class="resource-title">Insight Timer</div>
-      <div class="resource-desc">Free guided meditations for anxiety, sleep, and emotional grounding. My most-used app for the past two years.</div>
-    </div>
-  </div>
-
-  <div class="resource-card">
-    <div class="resource-icon-box">📔</div>
-    <div class="resource-info">
-      <span class="resource-type">Tool</span>
-      <div class="resource-title">Day One Journal</div>
-      <div class="resource-desc">A beautifully designed journal app that makes it easy to process thoughts privately and consistently.</div>
-    </div>
-  </div>
-
-  <div class="resource-card">
-    <div class="resource-icon-box">🌙</div>
-    <div class="resource-info">
-      <span class="resource-type">App</span>
-      <div class="resource-title">Calm</div>
-      <div class="resource-desc">Guided sleep stories and breathing exercises for the nights when your brain just won't switch off.</div>
-    </div>
-  </div>
-
-</div>
-
-<div class="section-label" style="margin-bottom:2rem">Self-Care Products</div>
-<div class="resources-grid">
-
-  <div class="resource-card">
-    <div class="resource-icon-box">🕯️</div>
-    <div class="resource-info">
-      <span class="resource-type">Product</span>
-      <div class="resource-title">Lavender Aromatherapy Candle</div>
-      <div class="resource-desc">Light one when you need to create a sense of calm at home. Scent is the fastest path to the nervous system.</div>
-    </div>
-  </div>
-
-  <div class="resource-card">
-    <div class="resource-icon-box">🛁</div>
-    <div class="resource-info">
-      <span class="resource-type">Product</span>
-      <div class="resource-title">Epsom Salt Bath Soak</div>
-      <div class="resource-desc">A magnesium-rich soak that genuinely helps with tension and anxious energy. Cheap, simple, effective.</div>
-    </div>
-  </div>
-
-  <div class="resource-card">
-    <div class="resource-icon-box">☕</div>
-    <div class="resource-info">
-      <span class="resource-type">Product</span>
-      <div class="resource-title">Pukka Calm Tea Blend</div>
-      <div class="resource-desc">Chamomile, lavender, and oat flower — a cup of this before bed is a small act of self-love.</div>
-    </div>
-  </div>
-
-</div>
-```
 
   </div>
 </div>
@@ -1520,7 +1575,7 @@
         <li><a onclick="showPage('home')">Home</a></li>
         <li><a onclick="showPage('blog')">Blog</a></li>
         <li><a onclick="showPage('meals')">Meal Prep</a></li>
-        <li><a onclick="showPage('resources')">My Picks 💛</a></li>
+        <li><a onclick="showPage('resources')">Favorite Finds</a></li>
         <li><a onclick="showPage('lens')">Through My Lens</a></li>
       </ul>
     </div>
