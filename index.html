@@ -338,6 +338,41 @@
     .hazel-name-tag { right: 0; }
   }
 
+  /* ── GENTLE REMINDER ── */
+  .gentle-reminder {
+    padding: 3rem 2rem;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .gentle-reminder-box {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 2.75rem;
+    box-shadow: 0 2px 16px var(--shadow);
+  }
+
+  .gentle-reminder-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--sage-dark);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .gentle-reminder-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--espresso);
+    line-height: 1.55;
+  }
+
   /* ── ABOUT STRIP ── */
   .about-strip {
     padding: 5rem 2rem;
@@ -1143,6 +1178,13 @@
     </div>
   </div>
 
+  <div class="gentle-reminder">
+    <div class="gentle-reminder-box">
+      <div class="gentle-reminder-title">🌿 A Gentle Reminder</div>
+      <p class="gentle-reminder-text" id="gentle-reminder-text"></p>
+    </div>
+  </div>
+
   <div class="about-strip">
     <div class="about-text">
       <h2>You're not too <em>much.</em><br>You're just deeply human.</h2>
@@ -1405,6 +1447,45 @@
 
 
 <script>
+  // ── GENTLE REMINDER ──
+  (function () {
+    var reminders = [
+      "You don't have to solve every thought your brain creates.",
+      "Rest is not a reward. It's a need.",
+      "Not every thought deserves your attention.",
+      "You are allowed to take life one gentle step at a time.",
+      "Your pace is still progress.",
+      "You can pause. The world will still be here.",
+      "It's okay if today is softer than yesterday.",
+      "Small steps are still steps.",
+      "You deserve the same kindness you give others.",
+      "Your thoughts are visitors, not rulers.",
+      "Your nervous system deserves peace.",
+      "You don't need to have everything figured out.",
+      "Breathe. You are safe in this moment.",
+      "The version of you trying today is enough.",
+      "You are not behind in life.",
+      "Some thoughts are just passing weather.",
+      "It's okay to slow down.",
+      "You are doing better than your mind tells you.",
+      "Peace is allowed to be simple.",
+      "You don't need to carry everything today.",
+      "It's okay to let today be gentle.",
+      "You are allowed to rest your mind.",
+      "Not everything requires a decision right now.",
+      "You are safe to take a breath.",
+      "Progress doesn't need to be loud.",
+      "Today can be small and still meaningful.",
+      "Your feelings are valid, but they are not permanent.",
+      "You are allowed to soften your expectations today.",
+      "You don't have to rush healing.",
+      "You are allowed to simply exist today."
+    ];
+    var dayIndex = Math.floor(Date.now() / 86400000) % reminders.length;
+    var el = document.getElementById('gentle-reminder-text');
+    if (el) el.textContent = reminders[dayIndex];
+  })();
+
   // ── PAGE NAV ──
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
